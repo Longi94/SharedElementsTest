@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 public class GridViewAdapter extends BaseAdapter {
 
@@ -41,16 +41,14 @@ public class GridViewAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final View v = mInflater.inflate(R.layout.grid_item, null);
 
-        ((TextView)v.findViewById(R.id.text)).setText("" + position);
-
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(new Intent(mContext, DialogActivity.class));
-                i.putExtra("position", position);
-
                 ActivityOptions options = ActivityOptions
-                        .makeSceneTransitionAnimation((Activity) mContext, v, "transition");
+                        .makeSceneTransitionAnimation((Activity) mContext,
+                                Pair.create(v, "background_transition"),
+                                Pair.create(v.findViewById(R.id.image), "image_transition"));
                 mContext.startActivity(i, options.toBundle());
             }
         });

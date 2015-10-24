@@ -2,18 +2,18 @@ package com.tlongdev.sharedelementstest;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 
-public class SquareFrameLayout extends FrameLayout {
-    public SquareFrameLayout(Context context) {
+public class SquareImageLayout extends ImageView {
+    public SquareImageLayout(Context context) {
         super(context);
     }
 
-    public SquareFrameLayout(Context context, AttributeSet attrs) {
+    public SquareImageLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SquareFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SquareImageLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
